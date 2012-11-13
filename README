@@ -2,7 +2,7 @@ NAME
     Dancer::Template::Mustache - Wrapper for the Mustache template system
 
 VERSION
-    version 0.1.0
+    version 0.1.1
 
 SYNOPSIS
         # in config.yml
@@ -30,6 +30,9 @@ DESCRIPTION
         <body>
         {{ content }}
         </body>
+
+SEE ALSO
+    The Mustache templating system: <http://mustache.github.com/>
 
 AUTHOR
     Yanick Champoux <yanick@babyl.dyndns.org>

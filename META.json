@@ -24,6 +24,11 @@
             "Module::Build" : "0.3601"
          }
       },
+      "develop" : {
+         "requires" : {
+            "version" : "0.9901"
+         }
+      },
       "runtime" : {
          "requires" : {
             "Dancer::Config" : "0",
@@ -36,23 +41,20 @@
       },
       "test" : {
          "requires" : {
-            "Carp" : "0",
             "Dancer" : "0",
             "Dancer::FileUtils" : "0",
             "Dancer::Test" : "0",
             "File::Find" : "0",
             "File::Temp" : "0",
             "FindBin" : "0",
-            "Scalar::Util" : "0",
-            "Test::More" : "0.94",
-            "perl" : "5.004"
+            "Test::More" : "0.88"
          }
       }
    },
    "provides" : {
       "Dancer::Template::Mustache" : {
          "file" : "lib/Dancer/Template/Mustache.pm",
-         "version" : "v0.1.0"
+         "version" : "v0.1.1"
       }
    },
    "release_status" : "stable",
@@ -68,7 +70,7 @@
          "web" : "https://github.com/yanick/Dancer-Template-Mustache"
       }
    },
-   "version" : "0.1.0",
+   "version" : "0.1.1",
    "x_author_pledge" : {
       "version" : 1
    },

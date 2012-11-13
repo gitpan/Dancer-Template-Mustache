@@ -3,7 +3,7 @@ BEGIN {
   $Dancer::Template::Mustache::AUTHORITY = 'cpan:YANICK';
 }
 {
-  $Dancer::Template::Mustache::VERSION = '0.1.0';
+  $Dancer::Template::Mustache::VERSION = '0.1.1';
 }
 # ABSTRACT: Wrapper for the Mustache template system
 
@@ -54,7 +54,7 @@ Dancer::Template::Mustache - Wrapper for the Mustache template system
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 SYNOPSIS
 
@@ -84,6 +84,10 @@ mustached layout would look like:
     <body>
     {{ content }}
     </body>
+
+=head1 SEE ALSO
+
+The Mustache templating system: L<http://mustache.github.com/>
 
 =head1 AUTHOR
 
