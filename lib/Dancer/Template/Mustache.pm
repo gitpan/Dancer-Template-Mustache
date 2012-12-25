@@ -3,7 +3,7 @@ BEGIN {
   $Dancer::Template::Mustache::AUTHORITY = 'cpan:YANICK';
 }
 {
-  $Dancer::Template::Mustache::VERSION = '0.1.1';
+  $Dancer::Template::Mustache::VERSION = '0.2.0';
 }
 # ABSTRACT: Wrapper for the Mustache template system
 
@@ -11,26 +11,53 @@ use strict;
 use warnings;
 
 use Template::Mustache;
-use Dancer::Config 'setting';
+use FindBin;
 
-use base 'Dancer::Template::Abstract';
+require Dancer;
+
+use Moo;
+
+if ( Dancer->VERSION >= 2 ) {
+    with 'Dancer::Core::Role::Template';
+}
+else {
+    require Dancer::Config;
+    Dancer::Config->import( 'setting' );
+
+    extends 'Dancer::Template::Abstract';
+}
+
+sub _build_name { 'Dancer::Template::Mustache' }
 
 sub default_tmpl_ext { "mustache" };
 
-my $_mustache;
-my $_template_path;
+has api_version => (
+    is => 'ro',
+    lazy => 1,
+    default => sub { int Dancer->VERSION },
+);
 
-sub init { 
-    my $self = shift;
-    my %config = %{$self->config || {}};
+has _engine => (
+    is => 'ro',
+    lazy => 1,
+    default => sub {
+        Template::Mustache->new( %{ $_[0]->config } );
+    },
+);
 
-    $_mustache = Template::Mustache->new( %config );
-
-    $_template_path = setting( 'views' ) || $FindBin::Bin . '/views';
-}
+has _template_path => (
+    is => 'ro',
+    lazy => 1,
+    default => sub {
+        ( $_[0]->api_version == 1 ? setting( 'views' ) :  $_[0]->views )
+            || $FindBin::Bin . '/views'
+    },
+);
 
 sub render {
     my ($self, $template, $tokens) = @_;
+
+    my $_template_path = $self->_template_path;
 
     local $Template::Mustache::template_path = $_template_path;
 
@@ -39,7 +66,7 @@ sub render {
 
     local $Template::Mustache::template_file = $template;
     
-    return $_mustache->render($tokens);
+    return $self->_engine->render($tokens);
 }
 
 1;
@@ -54,7 +81,7 @@ Dancer::Template::Mustache - Wrapper for the Mustache template system
 
 =head1 VERSION
 
-version 0.1.1
+version 0.2.0
 
 =head1 SYNOPSIS
 

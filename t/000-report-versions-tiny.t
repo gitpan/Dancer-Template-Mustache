@@ -49,17 +49,15 @@ sub pmver {
 }
 
 eval { $v .= pmver('Dancer','any version') };
-eval { $v .= pmver('Dancer::Config','any version') };
 eval { $v .= pmver('Dancer::FileUtils','any version') };
-eval { $v .= pmver('Dancer::Template::Abstract','any version') };
 eval { $v .= pmver('Dancer::Test','any version') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('FindBin','any version') };
 eval { $v .= pmver('Module::Build','0.3601') };
+eval { $v .= pmver('Moo','any version') };
 eval { $v .= pmver('Template::Mustache','any version') };
 eval { $v .= pmver('Test::More','0.88') };
-eval { $v .= pmver('base','any version') };
 eval { $v .= pmver('strict','any version') };
 eval { $v .= pmver('version','0.9901') };
 eval { $v .= pmver('warnings','any version') };
