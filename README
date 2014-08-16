@@ -2,7 +2,7 @@ NAME
     Dancer::Template::Mustache - Wrapper for the Mustache template system
 
 VERSION
-    version 0.2.0
+    version 0.3.0
 
 SYNOPSIS
         # in config.yml

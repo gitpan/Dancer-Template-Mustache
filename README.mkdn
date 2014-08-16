@@ -4,7 +4,7 @@ Dancer::Template::Mustache - Wrapper for the Mustache template system
 
 # VERSION
 
-version 0.2.0
+version 0.3.0
 
 # SYNOPSIS
 
@@ -23,7 +23,7 @@ version 0.2.0
 
 # DESCRIPTION
 
-This module is a [Dancer](http://search.cpan.org/perldoc?Dancer) wrapper for [Template::Mustache](http://search.cpan.org/perldoc?Template::Mustache). 
+This module is a [Dancer](https://metacpan.org/pod/Dancer) wrapper for [Template::Mustache](https://metacpan.org/pod/Template::Mustache). 
 
 For now, the extension of the mustache templates must be `.mustache`.
 
